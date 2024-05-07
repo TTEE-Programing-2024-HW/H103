@@ -1,7 +1,8 @@
   #include <stdio.h>
   #include <conio.h>
   #include <stdlib.h>
-  void menu(void)
+ 
+  void menu(void)  //設定一個函數來呼叫主選單 
   {
   	 printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 	 printf("+ a. 畫出直角三角形                +\n");
@@ -10,7 +11,7 @@
 	 printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
   }
   
-  void drawTriangle(char ch)
+  void triangle(char ch)  //設定一個函數來呼叫畫出直角三角形 
   {
   	 if(ch < 'a' || ch > 'n')
   	 {
@@ -19,11 +20,12 @@
   	 		fflush(stdin);
   	 		printf("輸入有效字元: ");
   	 		scanf("%c", &ch);
-		   }while(ch < 'a' || ch> 'n');
+		   }while(ch < 'a' || ch> 'n');  //判斷條件是否符合範圍內,並輸入字元,如果不符合,就要輸入到符合條件為止 
 	   }
   }
   
-  for(char temp = 'a';temp<=ch; temp++)
+  char temp;
+  for( temp = 'a';temp<=ch; temp++)   
   {
   	for(space= ch;space>temp;space--)
   	{
@@ -37,7 +39,7 @@
 	printf("\n");
   }
   
-  void drawMultiplicationTable(int n)
+  void table(int n)  //呼叫畫出直角三角形函數 
   {
   	if(n<1 || n>9)
   	{
@@ -94,7 +96,7 @@
   		
 	if(password==2024)
 	{
-	 system("CLS");
+	 system("CLS");//清除螢幕 
 	 
 	 printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 	 printf("+ a. 畫出直角三角形                +\n");
@@ -157,7 +159,7 @@
 		printf("輸入一個1至9的整數n: ");
 		fflush(stdin);
 		scanf("%d", &n);
-		drawMultiplicationTable(n);
+		table(n);
 		break;
 	}	    
   }
@@ -221,3 +223,14 @@
 	system("pause");
 	return 0;
   }   
+  
+  //心得
+/*
+這次的作業，遇到了許多困難，
+像是一開始想用迴圈畫出直角三角形，
+後來發現這樣一次要增加很多行，
+進而提高除錯的難度，所以改用函數來做，
+增加效率許多，其他的小題也是如此，過程也除錯多次，
+像是括號太多，可讀性變得困難，導致編譯不過去，
+也因為如此，讓我的除錯能力有所提升。
+*/
