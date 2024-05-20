@@ -40,7 +40,7 @@
 	  void showSeats()
 	  {
 	  	int i, j;
-	  	printf(" 123456789\n");
+	  	printf("\n 123456789\n");
 	  	for(i=0;i<size;i++)
   		{
   			printf("%d", i+1);
@@ -222,46 +222,56 @@
 	 printf("Not enough consecutive seats for you. \n ");
     }
     
-    void selectSeats(char seats[ROWS][COLS])
+    int selectSeats(char seats[ROWS][COLS])
     {
     	char input[10];
-    	int selectedSeats[ROWS*COLS][2];
+    	int selectedSeats[4][2];
     	int numSeats=0;
     	
-    	printf("Please choose the seats: ");
+    	printf("Please choose the seats: \n");
     	
-    	while(1)
+    	while(numSeats<4)
     	{
-    		printf("Please input the number: ");
-    		fgets(input, sizeof(input), stdin);
-    		if(strncmp(input, "done", 4)==0)
-    		{
-    			break;
-			}
+    		char input[5];
+    		scanf("%s", &input);
 			
 			int row, col;
-			if(scanf(input, "%d-%d", &row, &col) !=2 || row<1 || row>ROWS || col<1 || col>COLS)
+			if(sscanf(input, "%d-%d", &row, &col) !=2)
 			{
 				printf("Error. \n");
 				continue;
 			}
 			
-			row=ROWS-row;
-			col=COLS-1;
-			
-			if(seats[row][col]!= '-')
+			if(row<1 || row>ROWS || col<1 || col>COLS || seats[row-1][col-1]!= '-')
 			{
-				printf("Seat have been booked or invalid. \n");
+				printf("Seat has been booked or invalid. \n");
 				continue;
 			}
 			
-			selectedSeats[numSeats][0]=row;
-			selectedSeats[numSeats][1]=col;
+			
+			selectedSeats[numSeats][0]=row-1;
+			selectedSeats[numSeats][1]=col-1;
 			numSeats++;
-			seats[row][col]= '@';
+			seats[row-1][col-1]= '@';
+			
+			if(numSeats<4)
+			{
+				printf("The seat already choosen: %d-%d ", row, col);
+		    }
+		    
+				else
+				{
+					printf("Seat selection completed. \n");
+					break;
+				}
+			showSeats();
+			getch();
+			system("CLS");
+			return 0;
 		}
-		return;
+		Menu();
 	}
+  
   
   int main(void)
   {
@@ -304,6 +314,9 @@
   			break;
 		  }
 	  }while(password!=2024);
+	  
+	  if(password==2024)
+	  {
 	  printf("Welcome! ");
 	  	initializeSeats();
 	system("CLS");
@@ -317,7 +330,7 @@
   	system("pause");
   	system("CLS");
   
-  	switch(choice)
+  switch(choice)
   {
   		case 'a':
   		showSeats();
@@ -342,6 +355,7 @@
   	   break; 
   	   
   		case 'c':
+  		selectSeats(seats);
   		break;
   		
   		case 'd':
@@ -373,5 +387,6 @@
   default:
   	system("pause");
 	system("CLS");
+}
 }
  }
