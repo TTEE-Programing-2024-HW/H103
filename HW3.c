@@ -18,7 +18,7 @@
   printf("----------------------------------\n");
   }
   
-  void initializeSeats()
+  void initializeSeats()  //generate seats
   	{
   		int i, j;
   		for(i=0;i<=size;i++)
@@ -37,7 +37,7 @@
 		  }
 	  }
 	  
-	  void showSeats()
+	  void showSeats()  //show seats
 	  {
 	  	int i, j;
 	  	printf("\n 123456789\n");
@@ -102,7 +102,7 @@
 				 return;
 			 }
 			 
-			if(num==4)
+			if(num==4)  //choose the seats and mark on @
 			{
 				if(seats[row][col]== '-' || seats[row][col+1]== '-' || seats[row+1][col]== '-' || seats[row+1][col+1]== '-' || (col+1) < size)
 				{
@@ -125,7 +125,7 @@
 					fflush(stdin);
 					scanf("%c", &q);
 					
-					if(q== 'y')
+					if(q== 'y')  //if q equal y, return
 					{
 						seats[row][col]= '*';
 						seats[row][col+1]= '*';
@@ -134,7 +134,7 @@
 						return;
 					}
 					
-					else if(q== 'n')
+					else if(q== 'n')  //if q equal n, fuction showSeats will be rerun 
 					{
 						seats[row][col]= '-';
 						seats[row][col+1]= '-';
@@ -224,16 +224,16 @@
     
     int selectSeats(char seats[ROWS][COLS])
     {
+    	printf("Please choose the seats: \n");
     	char input[10];
-    	int selectedSeats[4][2];
+    	int selectedSeats[4][2];  //to store the user options
     	int numSeats=0;
     	
-    	printf("Please choose the seats: \n");
     	
     	while(numSeats<4)
     	{
     		char input[5];
-    		scanf("%s", &input);
+    		scanf("%4s", &input);
 			
 			int row, col;
 			if(sscanf(input, "%d-%d", &row, &col) !=2)
@@ -267,7 +267,7 @@
 			showSeats();
 			getch();
 			system("CLS");
-			return 0;
+			break;
 		}
 		Menu();
 	}
@@ -275,7 +275,7 @@
   
   int main(void)
   {
-  printf("Hello World.\n");
+  printf("Hello World.\n");  //personal picture
   printf("Hello World.\n");
   printf("Hello World.\n");
   printf("Hello World.\n");
@@ -296,13 +296,13 @@
   printf("Hello World.\n");
   printf("Hello World.\n");
   getch();
-  system("CLS");
+  system("CLS");  //clean the screen 
   
   	int password=2024, attempts=0;
-  	srand(time(0));
+  	srand(time(0));  //design random number generate
   	char ans;
   	
-  	do
+  	do  //while password inequal 2024 need to keep input until the password is correct
   	{
   		printf("Please enter the password: \n");
   		scanf("%d", &password);
@@ -319,13 +319,13 @@
 	  	initializeSeats();
 	system("CLS");
       }
-	}while(attempts<3);
+	}while(password!=2024);
 
     Menu();
     
     char choice;
-   	printf("Please enter the letter: \n");
-   	fflush(stdin);
+   	printf("Please enter the letter: \n");  
+   	fflush(stdin);  //clean input buffer
   	scanf("%c", &choice);
   	system("pause");
   	system("CLS");
@@ -333,9 +333,9 @@
   switch(choice)
   {
   		case 'a':
-  		showSeats();
+  		showSeats();  //Call the function showSeats
   		system("CLS");
-  		Menu();
+  		Menu();  //Call the function to show Menu
   		break;
   	    
   		case 'b':
@@ -352,6 +352,8 @@
   		break;
   	   }
       }
+      system("CLS");
+       Menu();
   	   break; 
   	   
   		case 'c':
@@ -361,7 +363,7 @@
   		case 'd':
   		printf("Continue ? (y/n): ");
   		
-  		while(1)
+  		while(1)  //while above the program been setup, the program under below will be execute
   	{
   		fflush(stdin);
   		scanf("%c", &ans);
