@@ -371,8 +371,6 @@
   		if(ans== 'y')
   		{
   			Menu();
-  			system("pause");
-  			system("CLS");
 		}
 		
 		else if(ans== 'n')
@@ -383,6 +381,9 @@
 		else
 		{
 			printf("Error. \n");
+			printf("Continue ? (y/n): ");
+			scanf("%d", &ans);
+			attempts++;
 		}
 		break;
 	}		   
