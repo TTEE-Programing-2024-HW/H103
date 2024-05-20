@@ -306,21 +306,21 @@
   	{
   		printf("Please enter the password: \n");
   		scanf("%d", &password);
-  		attempts++;
-  		
-  		if(attempts>3)
+    
+    if(attempts>3)
   		{
   			printf("Enter more than three times! \n");
-  			break;
-		  }
-	  }while(password!=2024);
+  			return 0;
+		}
 	  
 	  if(password==2024)
 	  {
 	  printf("Welcome! ");
 	  	initializeSeats();
 	system("CLS");
-    
+      }
+	}while(attempts<3);
+
     Menu();
     
     char choice;
@@ -389,4 +389,4 @@
 	system("CLS");
 }
 }
- }
+ 
