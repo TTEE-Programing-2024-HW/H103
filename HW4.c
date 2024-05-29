@@ -2,6 +2,7 @@
   #include <stdlib.h>
   void Menu(void);
   void a(int);
+  void b(int);
   
   struct grades
   	{
@@ -66,6 +67,16 @@
 	system("pause");
   }
   
+  void b(int p)
+  {
+  	int i;
+	  for(i=0;i<p;i++)
+	  {
+	  	printf("student: %s, ID: %s, physics: %d,math: %d,english: %d\n", student[i].name, student[i].ID, student[i].physics, student[i].math, student[i].english);
+	  }
+  }
+  
+  
   int main(void)
   {
    printf("  __       __   __   __ _____ __   ___________\n");
@@ -79,6 +90,8 @@
   	printf("|--|     |--| |--| |--|     |--|  _________| |\n");
   	printf("|--|     |--| |--| |--|_____|--| |           |\n");
   	printf("|__|     |__| |__| |__|_____|__| |___________|\n");
+  	system("pause");
+  	system("CLS");
   	getch();
   	
   	int password=2024,count=0;
@@ -122,7 +135,13 @@
   		  scanf("%d", &p);	
 		}
 		a(p);
-  		break;		
+  		break;
+		  
+   	case 'b':
+	  system("CLS");
+	  b(p);
+	  system("pause");
+	  break;		
   }
  } 
 } 
