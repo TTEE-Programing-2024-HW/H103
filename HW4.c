@@ -72,7 +72,7 @@
   	int i;
 	  for(i=0;i<p;i++)
 	  {
-	  	printf("student: %s, ID: %s, physics: %d,math: %d,english: %d\n", student[i].name, student[i].ID, student[i].physics, student[i].math, student[i].english);
+	  	printf("student: %s, ID: %s, physics: %.2f,math: %.2f,english: %.2f\n", student[i].name, student[i].ID, student[i].physics, student[i].math, student[i].english);
 	  }
   }
   
