@@ -93,7 +93,7 @@
   	
   	for(i=0;i<p;i++)
   	{
-  		if(s==0)
+  		if(strcmp(student[i].name, s)==0)
   		{
   			printf("Student files: ");
   			printf("name: %s\n", student[i].name);
