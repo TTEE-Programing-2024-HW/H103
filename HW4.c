@@ -93,7 +93,7 @@
   	
   	for(i=0;i<p;i++)
   	{
-  		if(strcmp(student[i].name, s)==0)
+  		if(strcmp(student[i].name, s)==0)    
   		{
   			printf("Student files: ");
   			printf("name: %s\n", student[i].name);
@@ -197,7 +197,7 @@
   	else
   	{
   		printf("Enter over three times! \n");
-  		break;
+  		return 0;
 	}
   }while(password!=2024);  //while password not equal to 2024 and enter over three times program will interrupt 
   
@@ -255,4 +255,6 @@
 	break;
   }
  } 
-} 
+}
+//這次的程式作業相較作業三簡單很多，不僅如此還增強我對結構的寫法，邊看著教學手冊邊學習，大部分的選項基本上毫無大礙，為只有在選項c
+//卡比較久沒找出bug，找了好一陣子才找到原因，且也讓我對字串函數strcmp, strlen更加熟悉。 
