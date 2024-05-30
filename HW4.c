@@ -7,16 +7,16 @@
   void d(int);
   void e();
   
-  struct grades
+  struct grades //define struct grades
   	{
-  		char name[10], num[10], ID[7];
-  		float math, physics, english, average, temp;
+  		char name[10], num[10], ID[7]; //variables for storing name, number, ID
+  		float math, physics, english, average, temp; //variables for storing grades and average
 	};
 	  
-	  struct grades student[100];
+	  struct grades student[100];  //array to store number up to 100 students
 	  int p=0;
 	  
-  void Menu()
+  void Menu()  //menu
   {
    printf("----------[Grade System]-----------\n");
    printf("| a.    Enter student grades      |\n");
@@ -25,10 +25,10 @@
    printf("| d.    Grade ranking             |\n");
    printf("| e.    Exit system               |\n");
    printf("----------------------------------|\n");	
-   system("CLS");
+   system("CLS");  ///clean the screen 
   }
   
-  void a(int p)
+  void a(int p)  //declare the function a without the value
   {
 	int i;
 	
@@ -66,13 +66,13 @@
 		scanf("%f", student[i].english);
 	  } 
 	  
-	  student[i].average= (student[i].physics + student[i].math + student[i].english) / 3.0;  
+	  student[i].average= (student[i].physics + student[i].math + student[i].english) / 3.0;  //average
 	}
-	system("CLS");
-	system("pause");
+	system("CLS");  //clean the screen 
+	system("pause");  
   }
   
-  void b(int p)
+  void b(int p)  //declare the function b without the value
   {
   	int i;
 	  for(i=0;i<p;i++)
@@ -81,9 +81,9 @@
 	  }
   }
   
-  void c(int p)
+  void c(int p)  //declare the function c without the value
   {
-  	char s[10];
+  	char s[10];  //array to store number up to 10
   	int f=0;
   	int i;
   	system("CLS");
@@ -113,17 +113,17 @@
 	  }
   }
   
-  void d(int p)
+  void d(int p)  //declare the function d without the value
   {
   	int i,j, place;
   	printf("Grades ranking: \n");
   	
-  	for(i=0;i<p-1;i++)
+  	for(i=0;i<p-1;i++)  
   	{
   		for(j=0;j<p-i-1;j++)
-  		{
+  		{                     // Comparing the averages of adjacent students
   			if(student[j].average < student[j+1].average)
-  			{
+  			{                // Swapping the positions of students if their averages are in descending order
   				struct grades tempstudent=student[j];
   				student[j]=student[j+1];
   				student[j+1]=tempstudent;
@@ -131,21 +131,21 @@
 		  }
     }
     
-	  for(i=0;i<p;i++)
+	  for(i=0;i<p;i++)  //rank the grades 
 	  {
 	  	printf("%d place: name: %s ID: %s average: %.2f\t\n", i+1, student[i].name, student[i].ID, student[i].average);
 	  }
 	  getch();
   }
   
-  void e()
+  void e()  //declare function e without the value
   {
   	char option;
   	
   	while(1)
   	{
-  		printf("Continue?(y/n): \n");
-  		fflush(stdin);
+  		printf("Continue?(y/n): \n");  //choose 'y' or 'n'
+  		fflush(stdin);  //clean input buffer  
   		scanf("%c", &option);
   		
   		if(option=='y')
@@ -165,7 +165,7 @@
   }
   
   
-  int main(void)
+  int main(void)  //personal picture
   {
    printf("  __       __   __   __ _____ __   ___________\n");
   	printf("|--|     |--| |  | |--|_____|--| |           |\n");
@@ -179,8 +179,8 @@
   	printf("|--|     |--| |--| |--|_____|--| |           |\n");
   	printf("|__|     |__| |__| |__|_____|__| |___________|\n");
   	system("pause");
-  	system("CLS");
-  	getch();
+  	system("CLS");  //clean the screen 
+  	getch();  
   	
   	int password=2024,count=0;
   	char g;
@@ -199,24 +199,24 @@
   		printf("Enter over three times! \n");
   		break;
 	}
-  }while(password!=2024);
+  }while(password!=2024);  //while password not equal to 2024 and enter over three times program will interrupt 
   
   while(1)
   {
   	system("CLS");
   	Menu();
   	printf("Please choose 'a', 'b', 'c', 'd', 'e': \n");
-  	fflush(stdin);
+  	fflush(stdin);  //clean input buffer
   	scanf("%c", &g);
   
-  switch(g)
+  switch(g)  //choose the letter to excecute the function 
   {
   	case 'a':
   		system("CLS");
   		printf("Please input n(5~10) interger: \n");
   		fflush(stdin);
   		scanf("%d", &p);
-  		while(p<=2 || p>=10)
+  		while(p<=2 || p>=10)  //while p less than two or more than ten will excecute function a 
   		{
   		  printf("Please input n(5~10) interger again: \n");
   		  fflush(stdin);
@@ -227,29 +227,29 @@
 		  
    	case 'b':
 	  system("CLS");
-	  b(p);
+	  b(p);  //fuction b
 	  system("pause");
 	  break;
 	  
 	case 'c':
 	system("CLS");
-	c(p);
+	c(p);  //function c
 	system("pause");
 	break;
 	
 	case 'd':
 	system("CLS");
-	d(p);
+	d(p);  //function d
 	system("pause");
 	break;		
 	
 	case 'e':
 	system("CLS");
-	e();
+	e();  //function e 
 	system("pause");
 	break;
 	
-	default:
+	default:  //while enter orther character will be excecute 
 	printf("Error, please enter again. \n");
 	system("pause");
 	break;
