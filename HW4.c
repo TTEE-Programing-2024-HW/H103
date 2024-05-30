@@ -5,6 +5,7 @@
   void b(int);
   void c(int);
   void d(int);
+  void e();
   
   struct grades
   	{
@@ -137,6 +138,32 @@
 	  getch();
   }
   
+  void e()
+  {
+  	char option;
+  	
+  	while(1)
+  	{
+  		printf("Continue?(y/n): \n");
+  		fflush(stdin);
+  		scanf("%c", &option);
+  		
+  		if(option=='y')
+  		{
+  			printf("Exit. \n");
+  			return;
+		}
+		else if(option=='n')
+		{
+			return;
+		}
+		else
+		{
+			printf("Please enter 'y' or 'n'again. \n");
+		}
+	  }
+  }
+  
   
   int main(void)
   {
@@ -215,6 +242,17 @@
 	d(p);
 	system("pause");
 	break;		
+	
+	case 'e':
+	system("CLS");
+	e();
+	system("pause");
+	break;
+	
+	default:
+	printf("Error, please enter again. \n");
+	system("pause");
+	break;
   }
  } 
 } 
