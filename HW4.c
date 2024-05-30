@@ -4,11 +4,12 @@
   void a(int);
   void b(int);
   void c(int);
+  void d(int);
   
   struct grades
   	{
   		char name[10], num[10], ID[7];
-  		float math, physics, english, average;
+  		float math, physics, english, average, temp;
 	};
 	  
 	  struct grades student[100];
@@ -98,7 +99,7 @@
   			printf("ID: %s\n", student[i].ID);
   			printf("physics: %.2f\n", student[i].physics);
   			printf("math: %.2f\n", student[i].math);
-  			printf("english: %s\n", student[i].english);
+  			printf("english: %.2f\n", student[i].english);
   			printf("average: %.2f\n", student[i].average);
   			f=1;
   			break;
@@ -108,6 +109,30 @@
 	  if(!f)
 	  {
 	  	printf("Files isn't exist! \n");
+	  }
+  }
+  
+  void d(int p)
+  {
+  	int i,j, place;
+  	printf("Grades ranking: \n");
+  	
+  	for(i=0;i<p-1;i++)
+  	{
+  		for(j=0;j<p-i-1;j++)
+  		{
+  			if(student[j].average < student[j+1].average)
+  			{
+  				struct grades tempstudent=student[j];
+  				student[j]=student[j+1];
+  				student[j+1]=tempstudent;
+			  }
+		  }
+    }
+    
+	  for(i=0;i<p;i++)
+	  {
+	  	printf("%d place: name: %s ID: %s average: %.2f\t\n", i+1, student[i].name, student[i].ID, student[i].average);
 	  }
 	  getch();
   }
@@ -182,6 +207,12 @@
 	case 'c':
 	system("CLS");
 	c(p);
+	system("pause");
+	break;
+	
+	case 'd':
+	system("CLS");
+	d(p);
 	system("pause");
 	break;		
   }
